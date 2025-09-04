@@ -14,12 +14,12 @@
 - Estimated run time: <5 min
 
 ## Prereqs
-- <tool versions> (or Docker Compose)
+- <tool versions>
 - Account/keys (use `.env.example`)
 
 ## Quick start
 ```bash
-git clone https://github.com/<org>/company-demos
+git clone https://github.com/datamindedbe/demo-technology-exploration
 cd demos/<this-demo>
 cp .env.example .env   # fill values
 make run               # or docker compose up
