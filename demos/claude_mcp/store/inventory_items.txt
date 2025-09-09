@@ -1,0 +1,4 @@
+Computer 6
+Mouse 2
+Keyboard 1
+Wires 10
