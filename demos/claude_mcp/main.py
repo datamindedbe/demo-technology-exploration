@@ -42,7 +42,7 @@ def get_staff() -> str:
     """
     Reads the current staff personal where each line is the name of a staff member
     """
-    with open("docs/staff.txt") as f:
+    with open("store/inventory_staff.txt") as f:
         return f.read()
     
 @mcp.resource("store://stock")
@@ -50,7 +50,7 @@ def get_stock() -> str:
     """
     Reads the current stock where each line represents one item with its current stock
     """
-    with open("docs/items.txt") as f:
+    with open("store/inventory_items.txt") as f:
         return f.read()
 
 @mcp.prompt(title="Items to restock")

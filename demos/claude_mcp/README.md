@@ -17,8 +17,9 @@ How to integrate an MCP server with Claude Desktop
 ## Prereqs
 - Claude desktop (Pro Plan if you want a remote server)
 - Python with the `mcp[cli]` dependency
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
-## Quick start
+## Quick start - Inspector
 ```bash
 git clone https://github.com/datamindedbe/demo-technology-exploration
 cd demos/claude_mcp
@@ -26,9 +27,13 @@ uv sync
 uv run mcp dev main.py # For inspector
 ```
 
+If you open the inspector, make sure you set transport type to "STDIO" for this demo to work.
+
+
+## Using Claude Desktop
 To have it working with Claude, [download Claude Desktop](https://claude.ai/download)
 
-Then go to settings > developer and `Edit Config` with the following, replacing values in angle brackets with your own:
+Then go to `settings > developer` and `Edit Config` with the following, replacing values in angle brackets with your own:
 ```json
 {
   "mcpServers": {
@@ -44,6 +49,14 @@ Then go to settings > developer and `Edit Config` with the following, replacing 
   }
 }
 ```
+
+Note: you can retrieve your uv path with `which uv`, and your code repository path with `pwd`.
+
+You can then shut down and restart Claude Desktop.
+In the chat interface, make sure the "Demo" server toggle is set to "active".
+You can now ask questions like:
+- "list the files in the Demo environment", and
+- "I want to know about the staff" as a follow-up question.
 
 ## Resources
 The official spec can be found [here](https://modelcontextprotocol.io/docs/getting-started/intro)
