@@ -24,7 +24,7 @@ How to integrate an MCP server with Claude Desktop
 git clone https://github.com/datamindedbe/demo-technology-exploration
 cd demos/claude_mcp
 uv sync
-uv run mcp dev main.py # For inspector
+uv run mcp dev main.py # For inspector which opens at http://localhost:6274/
 ```
 
 If you open the inspector, make sure you set transport type to "STDIO" for this demo to work.
