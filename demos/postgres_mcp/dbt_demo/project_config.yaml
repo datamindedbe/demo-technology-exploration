@@ -1,0 +1,33 @@
+project:
+  name: "Employee Analytics DBT"
+  description: "Comprehensive employee analytics and HR insights using DBT"
+  version: "1.0.0"
+  
+database:
+  type: "postgres"
+  host: "localhost"
+  port: 5432
+  database: "employee_db"
+  schema: "dbt_employee_analytics"
+  
+features:
+  - "Employee demographics analysis"
+  - "Salary analytics and compensation insights"
+  - "Department performance metrics"
+  - "Turnover risk assessment"
+  - "Career progression tracking"
+  - "Data quality testing"
+  - "Automated documentation"
+  
+models:
+  staging: 5
+  intermediate: 2
+  marts: 4
+  
+data_sources:
+  - "employees.employee"
+  - "employees.salary"
+  - "employees.title"
+  - "employees.department"
+  - "employees.department_employee"
+  - "employees.department_manager"

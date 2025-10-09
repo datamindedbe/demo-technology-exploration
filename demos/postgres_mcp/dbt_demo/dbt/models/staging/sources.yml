@@ -1,0 +1,92 @@
+version: 2
+
+sources:
+  - name: employee_db
+    description: "Employee database containing HR data for analytics"
+    database: employee_db
+    schema: employees
+    tables:
+      - name: employee
+        description: "Employee master data with personal information"
+        columns:
+          - name: id
+            description: "Unique employee identifier"
+            tests:
+              - unique
+              - not_null
+          - name: first_name
+            description: "Employee first name"
+          - name: last_name
+            description: "Employee last name"
+          - name: birth_date
+            description: "Employee birth date"
+          - name: gender
+            description: "Employee gender (M/F)"
+          - name: hire_date
+            description: "Employee hire date"
+            
+      - name: salary
+        description: "Employee salary history with effective dates"
+        columns:
+          - name: employee_id
+            description: "Employee identifier"
+            tests:
+              - not_null
+          - name: amount
+            description: "Salary amount in dollars"
+            tests:
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_between:
+                  min_value: 0
+                  max_value: 1000000
+          - name: from_date
+            description: "Salary effective start date"
+          - name: to_date
+            description: "Salary effective end date (9999-01-01 for current)"
+            
+      - name: title
+        description: "Employee job title history"
+        columns:
+          - name: employee_id
+            description: "Employee identifier"
+          - name: title
+            description: "Job title"
+          - name: from_date
+            description: "Title effective start date"
+          - name: to_date
+            description: "Title effective end date"
+            
+      - name: department
+        description: "Department master data"
+        columns:
+          - name: id
+            description: "Department identifier"
+            tests:
+              - unique
+              - not_null
+          - name: dept_name
+            description: "Department name"
+            
+      - name: department_employee
+        description: "Employee department assignments over time"
+        columns:
+          - name: employee_id
+            description: "Employee identifier"
+          - name: department_id
+            description: "Department identifier"
+          - name: from_date
+            description: "Assignment start date"
+          - name: to_date
+            description: "Assignment end date"
+            
+      - name: department_manager
+        description: "Department manager assignments over time"
+        columns:
+          - name: employee_id
+            description: "Manager employee identifier"
+          - name: department_id
+            description: "Department identifier"
+          - name: from_date
+            description: "Management start date"
+          - name: to_date
+            description: "Management end date"
