@@ -4,7 +4,7 @@ How to get started building an MCP server from scratch
 How to integrate an MCP server with Claude Desktop
 
 ## Video
-📺 [Watch the webinar/demo](<YouTube link>)
+📺 [Watch the webinar/demo](https://www.youtube.com/watch?v=fIr55-koOJQ)
 
 ## Author
 - Name: [Pierre Crochelet](https://github.com/crocheletpierre)
