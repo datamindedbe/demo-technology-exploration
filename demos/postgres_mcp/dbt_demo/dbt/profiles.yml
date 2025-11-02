@@ -1,0 +1,13 @@
+employee_analytics:
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: user
+      password: pass
+      port: 5432
+      dbname: employee_db
+      schema: employees
+      threads: 4
+  target: dev
+

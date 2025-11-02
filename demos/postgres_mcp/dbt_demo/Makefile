@@ -43,6 +43,9 @@ parse: ## Parse DBT project
 	cd dbt && ../venv/bin/dbt parse
 
 seed: ## Run DBT seeds
+	@echo "Creating database if it doesn't exist..."
+	@cd .. && docker-compose exec -T postgres psql -U user -d postgres -c "CREATE DATABASE employee_db;" 2>/dev/null || true
+	@echo "Running DBT seeds..."
 	cd dbt && ../venv/bin/dbt seed
 
 snapshot: ## Run DBT snapshots

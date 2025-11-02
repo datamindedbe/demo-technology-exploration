@@ -1,0 +1,4 @@
+employee_id,department_id,from_date,to_date
+10001,1,1991-06-25,9999-01-01
+10005,5,1992-09-11,9999-01-01
+

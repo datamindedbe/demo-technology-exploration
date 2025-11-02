@@ -29,4 +29,3 @@ models:
 
 seeds:
   employee_analytics:
-    +schema: seeds

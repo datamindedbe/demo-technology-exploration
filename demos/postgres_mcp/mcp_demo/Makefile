@@ -55,7 +55,7 @@ status: ## Show current status
 	@echo "Working directory: $(shell pwd)"
 	@echo "Python version: $(shell python3 --version 2>&1)"
 	@echo "uv version: $(shell uv --version 2>&1 || echo "❌ uv not installed")"
-	@echo "Virtual environment: $(shell [ -d "venv" ] && echo "✅ venv exists" || echo "❌ missing - run 'make setup'")"
+	@echo "Virtual environment: $(shell [ -d ".venv" ] && echo "✅ venv exists" || echo "❌ missing - run 'make setup'")"
 	@echo "Dependencies: $(shell [ -f requirements.txt ] && echo "✅ requirements.txt exists" || echo "❌ missing")"
 	@echo "Server file: $(shell [ -f server.py ] && echo "✅ server.py exists" || echo "❌ missing")"
 	@if [ -d "venv" ]; then echo "Virtual env Python: $(shell uv run python --version 2>&1)"; fi
