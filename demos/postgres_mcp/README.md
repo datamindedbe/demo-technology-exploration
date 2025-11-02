@@ -1,4 +1,4 @@
-# <Demo Title>
+# Accelerating DBT Develpment using a Postgres MCP Server
 **What you’ll learn:** 
 You will learn how to query your postgres database using natural language.
 You will see how it becomes even more powerful in combination with your dbt code.
