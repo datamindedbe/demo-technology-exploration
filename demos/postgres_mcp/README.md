@@ -135,12 +135,16 @@ This will:
 
 Use the MCP server to query the database and compare with dbt models. Try asking:
 
-> "Get the department_analytics data from the database and compare to the dbt model. Add data tests"
+> "Get the department_analytics data from the database and compare to the dbt model. Add data tests to the salary range column"
 
-This will:
-- Query the `employees_marts.department_analytics` table using the MCP server
-- Compare it with the dbt model definition in `dbt/models/marts/department_analytics.sql`
-- Add data tests to validate the model's output
+Depending on the model used, this will:
+- Query the `employees_marts.department_analytics` table using the MCP server to retrieve actual data
+- Compare the `salary_range` column values with the dbt model calculation (`round((max_salary - min_salary), 2)`) to verify they match
+- Create a schema.yml file in `dbt/models/marts/` with data tests for the `salary_range` column:
+  - `not_null` test to ensure no null values
+  - `dbt_expectations.expect_column_values_to_be_between` test to validate the range is between 0 and 1,000,000
+  - `dbt_utils.expression_is_true` test to verify the column matches the expected calculation
+- Run the tests using `dbt test --select department_analytics` to validate data quality
 
 ## Cleanup
 
