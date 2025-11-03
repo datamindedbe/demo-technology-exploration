@@ -1,17 +1,18 @@
 # Using a Postgres MCP Server to Accelerate dbt Development
 
 **What you’ll learn:** 
-You will learn how to query your postgres database using natural language.
-You will see how it becomes even more powerful in combination with your dbt code.
+
+- You will learn how to query your postgres database using natural language.
+- You will see how it becomes even more powerful in combination with your dbt code.
 
 ## Video
-📺 [Watch the webinar/demo](<YouTube link>)
+📺 [Watch the video!](https://youtu.be/tbrR21I3jJI?si=XiG-5bDtC6WJVZSh&utm_source=github&utm_medium=referral&utm_campaign=github_video&utm_content=readme_link)
 
 ## Author
-- Name: Emil Krause, github: emil-k
+- Name: [Emil Krause](https://github.com/emil-k)
 
 ## Stack
-- Languages/Frameworks/Tools: fastmcp, postgres
+- Languages/Frameworks/Tools: fastmcp, postgres, dbt
 - Cloud/Services: local
 - Estimated run time: <5 min
 
