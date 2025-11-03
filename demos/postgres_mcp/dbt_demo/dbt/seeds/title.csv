@@ -1,0 +1,9 @@
+employee_id,title,from_date,to_date
+10001,Senior Engineer,1986-06-26,9999-01-01
+10002,Staff,1985-11-21,9999-01-01
+10003,Senior Engineer,1986-08-28,9999-01-01
+10004,Engineer,1986-12-01,1995-12-01
+10004,Senior Engineer,1995-12-01,9999-01-01
+10005,Senior Staff,1989-09-12,1996-09-11
+10005,Staff,1996-09-11,9999-01-01
+
