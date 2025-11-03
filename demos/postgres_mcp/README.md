@@ -1,4 +1,4 @@
-# Using a Postgres MCP Server to Accelerate dbt Development
+# Postgres MCP Server to Accelerate dbt Development
 
 **What you’ll learn:** 
 
