@@ -2,8 +2,8 @@
 
 **What you’ll learn:** 
 
-- You will learn how to query your postgres database using natural language.
-- You will see how it becomes even more powerful in combination with your dbt code.
+- How to query your postgres database using natural language.
+- How MCPs can become even more powerful in combination with dbt code.
 
 ## Video
 📺 [Watch the video!](https://youtu.be/tbrR21I3jJI?si=XiG-5bDtC6WJVZSh&utm_source=github&utm_medium=referral&utm_campaign=github_video&utm_content=readme_link)
