@@ -64,6 +64,15 @@ Part 2: AI Layer
 
 This is the "boring" part (in a good way) - just moving data from Point A to Point B. No AI, no fancy stuff, just solid ETL.
 
+### Google Drive Setup
+
+Make sure you make a Service Account in the Google Cloud Console and download the JSON key.
+then drop it in the secrets/drive_creds/service_account.json file.
+
+Also make sure the service account has access to a Google Drive folder:
+![Google Drive folder access](./docs/images/001_folder_access.png)
+The url of the folder will be needed in the next step.
+
 ### Setup
 
 ```bash
@@ -78,6 +87,8 @@ cp env.example .env
 # 1. Drop your service account JSON in: secrets/drive_creds/service_account.json
 # 2. Add your Drive folder URL to .env: GOOGLE_DRIVE_FOLDER_URL=https://...
 ```
+
+
 
 ### Run it
 
