@@ -1,0 +1,41 @@
+-- Optional: work inside the project that contains your KB
+USE transcripts_proj;
+
+-- Create the agent with the new `data` syntax
+CREATE AGENT gdrive_transcript_bot
+USING
+    -- pick ONE of the two blocks below and delete the other
+    ----------------------------------------------------------------
+    -- OpenAI version
+    model             = 'gpt-4o',           -- any supported OpenAI model
+    ----------------------------------------------------------------
+    -- Google Gemini version
+    -- model          = 'gemini-2.0-flash',
+    -- google_api_key = 'AIzaREPLACE_ME',
+    ----------------------------------------------------------------
+
+    -- data sources the agent can access (replace/remove tables as needed)
+    data = {
+        'knowledge_bases': ['gdrive_kb']
+    },
+
+    -- few-shot / RAG prompt
+    prompt_template = '
+### Role
+You are **TranscriptBot**.  Answer user questions *only* with
+information retrieved from the knowledge-base `gdrive_kb`.
+
+### Retrieval & citation rules
+1. When you quote or paraphrase a chunk, add its **id** in brackets,
+   e.g. “(source: 566e5e…)”.
+2. Summarise duplicates; do not output raw chunks verbatim.
+3. Finish every response with a “Sources:” list that shows each cited
+   id and its `name` column.
+
+### Format
+Answer: <concise helpful answer>
+
+Sources:
+- <id1> — <name 1>
+- <id2> — <name 2>
+';

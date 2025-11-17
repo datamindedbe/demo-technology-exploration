@@ -1,0 +1,39 @@
+-- (optional) keep things organised in its own project
+CREATE PROJECT transcripts_proj;
+
+USE transcripts_proj;
+
+CREATE KNOWLEDGE_BASE gdrive_kb
+USING
+  -- 1. embedding model (required)
+  embedding_model = {
+      "provider": "openai",
+      "model_name": "text-embedding-3-small"   -- cheap + 1536-d vectors
+      -- omit api_key if you set OPENAI_API_KEY env-var
+  },
+
+  -- 2. reranking model (optional but dramatically improves result ordering)
+  reranking_model = {
+      "provi
+      der": "openai",
+      "model_name": "gpt-4o"
+  },
+
+  -- 3. storage (optional, defaults to built-in ChromaDB)
+  -- storage = my_vector_store.storage_table,
+
+  -- 4. tell MindsDB which columns contain what
+  metadata_columns = ['name','mime_type','modified_time','web_view_link'],
+  content_columns  = ['content'],
+  id_column        = 'id';
+
+
+INSERT INTO gdrive_kb
+SELECT
+   id,
+   name,
+   mime_type,
+   modified_time,
+   web_view_link,
+   content        -- <<< this gets chunked & embedded
+FROM postgres_inv.public.google_drive_files;
