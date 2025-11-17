@@ -1,4 +1,30 @@
-# Knowledge Inventory
+# Building a knowledge Agent with PyAirbyte and MindsDB
+
+**What you’ll learn:** 
+
+- How to ingest data from Google Drive into Postgres using PyAirbyte.
+- How to build a knowledge agent with MindsDB.
+
+## Video
+📺 [Watch the video!](TODO)
+
+## Author
+- Name: [Tarik Jamoulle](TODO)
+
+## Stack
+- python 3.9+
+- pyairbyte
+- mindsdb
+- Docker
+
+## Prereqs
+- [Docker](https://www.docker.com/) and Docker Compose
+- Google Service Account (to access Google Drive)
+- Slack bot token (to access Slack messages)
+- OpenAI API key (to create embeddings)
+
+
+## Setup Steps
 
 I built this to show how you can take documents from Google Drive (or Slack) and make them actually searchable with AI. The kind of "ask questions in plain English" search that actually works.
 
@@ -42,8 +68,8 @@ This is the "boring" part (in a good way) - just moving data from Point A to Poi
 
 ```bash
 # Clone it
-git clone <your-repo>
-cd playground-knowledge-inventory
+git clone https://github.com/datamindedbe/demo-technology-exploration.git
+cd demos/pyairbyte_mindsb
 
 # Copy the env template
 cp env.example .env
