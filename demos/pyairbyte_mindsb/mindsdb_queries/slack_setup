@@ -1,0 +1,105 @@
+-- ============================================
+-- MindsDB Slack Knowledge Base Setup
+-- ============================================
+
+-- Step 1: Create Slack database connection
+-- Following official docs: https://docs.mindsdb.com/integrations/app-integrations/slack
+CREATE DATABASE slack_datasource
+WITH ENGINE = 'slack', 
+PARAMETERS = {
+   "token": "xoxb-your-token-here"
+};
+
+-- Step 2: Explore available channels (conversations table per official docs)
+-- Note: is_member doesn't exist, query all channels instead
+SELECT id, name, is_general, is_shared, is_im, is_mpim
+FROM slack_datasource.conversations
+LIMIT 10;
+
+-- Step 3: View messages from a specific channel
+-- channel_id is REQUIRED parameter (get it from conversations table above)
+SELECT 
+    ts,
+    user,
+    text,
+    channel_id
+FROM slack_datasource.messages
+WHERE channel_id = '<channel-id>'  -- Replace with actual channel ID like 'C01234567'
+LIMIT 20;
+
+-- ============================================
+-- Option A: Create Knowledge Base (for RAG/semantic search)
+-- ============================================
+
+-- Step 4a: Create a Knowledge Base from Slack messages
+CREATE KNOWLEDGE_BASE slack_kb
+USING
+    embedding_model = {"provider": "openai", "model_name": "text-embedding-3-small"},
+    metadata_columns = ['user', 'channel_id', 'ts'],
+    content_columns = ['text'],
+    id_column = 'ts';
+
+-- Step 5a: Populate the Knowledge Base with messages
+-- Must use mindsdb. prefix for knowledge base (like in google_drive_kb example)
+INSERT INTO mindsdb.slack_kb
+SELECT ts, user, channel_id, text
+FROM slack_datasource.messages
+WHERE channel_id = 'C0FBBAURE';
+
+-- ============================================
+-- Option B: Direct table approach (simpler, no embeddings)
+-- ============================================
+
+-- Step 4b: Create a model that directly queries Slack
+CREATE MODEL slack_qa_model
+PREDICT answer
+USING
+    engine = 'openai',
+    model_name = 'gpt-4o',
+    prompt_template = 'Answer the question based on this Slack conversation: {{text}}. Question: {{question}}';
+
+-- ============================================
+-- Create Agent (works with Knowledge Base)
+-- ============================================
+
+-- Step 6: Create an agent to answer questions about Slack messages
+CREATE AGENT slack_assistant
+USING
+    model = 'gpt-4o',
+    data = {"knowledge_bases": ["slack_kb"]},
+    prompt_template = 'You are SlackBot, a helpful assistant that answers questions about Slack conversations. Answer questions ONLY using information from the slack_kb knowledge base. When quoting messages, include the user and timestamp. Provide context about when conversations happened. Format: Answer with context, then list Sources with timestamp and user.';
+
+-- ============================================
+-- Query the Agent
+-- ============================================
+
+-- Step 7: Ask questions to your Slack assistant
+SELECT slack_assistant('What have people been discussing recently?') AS answer;
+
+SELECT slack_assistant('What questions were asked in the channel?') AS answer;
+
+SELECT slack_assistant('Summarize the main topics discussed this week') AS answer;
+
+SELECT slack_assistant('Who are the most active participants?') AS answer;
+
+-- ============================================
+-- Advanced: Multi-channel Knowledge Base
+-- ============================================
+
+-- If you want to include multiple channels:
+INSERT INTO mindsdb.slack_kb
+SELECT ts, user, channel_id, text
+FROM slack_datasource.messages
+WHERE channel_id IN ('C0FBBAURE', '<channel-id-2>', '<channel-id-3>');
+
+-- ============================================
+-- Maintenance: Update with new messages
+-- ============================================
+
+-- Run periodically to add new messages
+INSERT INTO mindsdb.slack_kb
+SELECT ts, user, channel_id, text
+FROM slack_datasource.messages
+WHERE channel_id = 'C0FBBAURE'
+LIMIT 100;
+

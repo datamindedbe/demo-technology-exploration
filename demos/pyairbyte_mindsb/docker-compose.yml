@@ -1,0 +1,59 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: playground-knowledge-inventory-app
+    env_file:
+      - .env
+    volumes:
+      - ./demo.py:/app/demo.py
+      - ./src:/app/src
+      - ./secrets:/secrets
+    command: tail -f /dev/null
+    depends_on:
+      postgres-inv:
+        condition: service_healthy
+      mindsdb:
+        condition: service_started
+
+  postgres-inv:
+    image: pgvector/pgvector:pg16
+    container_name: playground-knowledge-inventory-postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_inv:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=inventory
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  mindsdb:
+    build:
+      context: .
+      dockerfile: mindsdb.Dockerfile
+    container_name: playground-knowledge-inventory-mindsdb
+    ports:
+      - "47334:47334" # HTTP API
+      - "47335:47335" # MySQL API
+    environment:
+      MINDSDB_APIS: "http,mysql"
+      MINDSDB_USERNAME: "mindsdb"
+      MINDSDB_PASSWORD: "inventory"
+    env_file:
+      - .env
+    volumes:
+      - mindsdb_data:/root/.mindsdb
+    depends_on:
+      postgres-inv:
+        condition: service_healthy
+
+volumes:
+  postgres_data_inv:
+  mindsdb_data:

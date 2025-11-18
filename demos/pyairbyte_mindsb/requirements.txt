@@ -1,0 +1,6 @@
+python-dotenv
+pytest
+psycopg2-binary
+SQLAlchemy
+airbyte
+mysql-connector-python
