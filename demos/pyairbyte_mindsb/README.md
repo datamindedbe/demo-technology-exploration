@@ -9,7 +9,7 @@
 📺 [Watch the video!](TODO)
 
 ## Author
-- Name: [Tarik Jamoulle](TODO)
+- Name: [Tarik Jamoulle](https://github.com/tarikjamoulle)
 
 ## Stack
 - python 3.9+
