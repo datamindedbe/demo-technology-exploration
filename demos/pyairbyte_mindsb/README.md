@@ -6,7 +6,7 @@
 - How to build a knowledge agent with MindsDB.
 
 ## Video
-📺 [Watch the video!](TODO)
+📺 [Watch the video!](https://www.youtube.com/watch?v=eLUQrSqP-ns&utm_source=github&utm_medium=referral&utm_campaign=github_video&utm_content=readme_link)
 
 ## Author
 - Name: [Tarik Jamoulle](https://github.com/tarikjamoulle)
