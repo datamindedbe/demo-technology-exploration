@@ -1,5 +1,8 @@
-# demo-technology-exploration
-Demo code for technology explorations
+# Technology Explorations - Demo Code
+Demo code for Dataminded's Technology Exploration series.
+
+📺 Link to full series on Youtube:
+[click here!](https://www.youtube.com/playlist?list=PLJ_da7qdfL80rA7byzC_CmyrfJWjcCTnb&utm_source=github&utm_medium=referral&utm_campaign=github_video&utm_content=readme_link)
 
 ## Demos
 
@@ -12,5 +15,4 @@ Demo code for technology explorations
 - Episode 001: SuperWhisper and Whisper Assistant
 
 
-📺 Link to full series on Youtube:
-[click here!](https://www.youtube.com/playlist?list=PLJ_da7qdfL80rA7byzC_CmyrfJWjcCTnb&utm_source=github&utm_medium=referral&utm_campaign=github_video&utm_content=readme_link)
+
