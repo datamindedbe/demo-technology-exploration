@@ -7,6 +7,7 @@
 
 ## Video
 📺 [Watch the video - Part 1: PyAirbyte)!](https://www.youtube.com/watch?v=eLUQrSqP-ns&utm_source=github&utm_medium=referral&utm_campaign=github_video&utm_content=readme_link)
+
 📺 [Watch the video - Part 2: MindsDB)!](https://www.youtube.com/watch?v=tfoXvifM-wg&utm_source=github&utm_medium=referral&utm_campaign=github_video&utm_content=readme_link)
 ## Author
 - Name: [Tarik Jamoulle](https://github.com/tarikjamoulle)
