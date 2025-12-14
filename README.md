@@ -6,7 +6,8 @@ Demo code for Dataminded's Technology Exploration series.
 
 ## Demos
 
-<!-- - Episode 006: [AI Code Reviews and PRs]() -->
+<!-- - Episode 007: [AI Code Reviews and PRs]() -->
+<!-- - Episode 006: [Cross-project AI coding using Cursor]() -->
 - Episode 005: [MindsDB - How do Build a RAG-based Agent, Fast!](demos/pyairbyte_mindsb/README.md)
 - Episode 004: [Data ingestion using PyAirbyte - Google Drive to Postgres](demos/pyairbyte_mindsb/README.md)
 - Special Episode: AWS Outage
