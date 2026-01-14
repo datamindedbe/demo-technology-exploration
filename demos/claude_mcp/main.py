@@ -1,5 +1,7 @@
-from mcp.server.fastmcp import FastMCP
 import os
+import sys
+from mcp.server.fastmcp import FastMCP
+import uvicorn
 
 mcp = FastMCP("demo_server")
 
@@ -61,4 +63,12 @@ def items_to_restock() -> str:
 
 
 if __name__ == "__main__":
-    mcp.run() # default to transport=stdio switch to sse for remote
+    if len(sys.argv) > 1 and sys.argv[1] == "http":
+        # Cloud Run sets PORT environment variable, default to 8080
+        port = int(os.getenv("PORT", "8080"))
+        host = os.getenv("HOST", "0.0.0.0")
+        # Get the streamable HTTP app and run it with uvicorn to configure host/port
+        app = mcp.streamable_http_app
+        uvicorn.run(app, host=host, port=port)
+    else:
+        mcp.run(transport="stdio") # default to transport=stdio switch to sse for remote

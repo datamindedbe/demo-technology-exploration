@@ -60,6 +60,41 @@ You can now ask questions like:
 - "list the files in the Demo environment", and
 - "I want to know about the staff" as a follow-up question.
 
+
+## Deploying to Cloud Run
+
+```bash
+gcloud auth login
+gcloud auth application-default login
+PROJECT_ID="<FILL IN YOUR PROJECT ID>"
+
+# gcloud auth login
+gcloud config set project $PROJECT_ID
+
+gcloud services enable \
+  run.googleapis.com \
+  artifactregistry.googleapis.com \
+  cloudbuild.googleapis.com
+
+gcloud iam service-accounts create mcp-server-sa-demo --display-name="MCP Server Service Account"
+
+#public
+gcloud run deploy mcp-server-public \
+    --service-account=mcp-server-sa-demo@$PROJECT_ID.iam.gserviceaccount.com \
+    --allow-unauthenticated \
+    --region=europe-west1 \
+    --source=. \
+    --labels=dev-tutorial=codelab-mcp
+
+# private:
+gcloud run deploy mcp-server-private \
+    --service-account=mcp-server-sa-demo@$PROJECT_ID.iam.gserviceaccount.com \
+    --no-allow-unauthenticated \
+    --region=europe-west1 \
+    --source=. \
+    --labels=dev-tutorial=codelab-mcp
+```
+
 ## Resources
 The official spec can be found [here](https://modelcontextprotocol.io/docs/getting-started/intro)
 You can find a variety of servers [here](https://github.com/modelcontextprotocol/servers) and [here](https://mcp.so)
