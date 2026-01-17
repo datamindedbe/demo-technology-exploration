@@ -13,7 +13,7 @@
             "args": [
               "-y",
               "@modelcontextprotocol/server-filesystem",
-              "/workspaces/MCP_Workshop"
+              "/workspaces/demo-technology-exploration/demos/claude_mcp"
             ]
           }
         }
