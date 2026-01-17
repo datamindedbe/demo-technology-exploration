@@ -17,6 +17,7 @@
 - Estimated run time: <10min
 
 ## Prereqs
+- Github account to run in codespaces
 - Claude desktop (Pro Plan if you want a remote server)
 - Python with the `mcp[cli]` dependency
 - [uv](https://docs.astral.sh/uv/getting-started/installation/)
@@ -31,6 +32,18 @@ uv run mcp dev main.py # For inspector which opens at http://localhost:6274/
 
 If you open the inspector, make sure you set transport type to "STDIO" for this demo to work.
 
+
+## Using codespaces
+You can work on this project with Github Codespaces.
+Create a workspace on Github and keep the configuration to `MCP Workshop`.
+This will start up a codespace with a few dependencies already installed.
+There will also be the npx filesystem MCP server pre-ready so that you can start playing around with MCP right away.
+
+You can then do any of the following:
+- Connect to community MCP servers
+- Try community MCP servers with vscode extensions
+- Connect to the MCP server created in this repository.
+- Expand the MCP server created in this repository with extra tools, resources and prompts.
 
 ## Using Claude Desktop
 To have it working with Claude, [download Claude Desktop](https://claude.ai/download)
