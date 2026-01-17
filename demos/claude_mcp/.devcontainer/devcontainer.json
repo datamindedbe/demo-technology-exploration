@@ -1,0 +1,23 @@
+{
+  "name": "MCP Workshop",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "uv add fastmcp",
+  "customizations": {
+    "vscode": {
+      "mcp": {
+        "servers": {
+          "filesystem": {
+            "command": "npx",
+            "args": [
+              "-y",
+              "@modelcontextprotocol/server-filesystem",
+              "/workspaces/MCP_Workshop"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
