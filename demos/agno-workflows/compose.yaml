@@ -1,0 +1,32 @@
+services:
+  postgresql-demo:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: dpp_demo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: abc123
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgresql-demo-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d dpp_demo"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  workflow:
+    build: .
+    ports:
+      - "7070:7070"
+    env_file: .env.secret
+    volumes:
+      - ./config:/app/config
+      - ./products:/app/products
+      - workflow-data:/app/data
+    depends_on:
+      postgresql-demo:
+        condition: service_healthy
+
+volumes:
+  postgresql-demo-data:
+  workflow-data:

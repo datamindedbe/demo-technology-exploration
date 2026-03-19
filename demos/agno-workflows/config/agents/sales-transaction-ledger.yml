@@ -1,0 +1,20 @@
+allowed_schemas:
+- sales_transaction_ledger
+description: Transactional order data, line items, and subscription revenue for SwiftGear.
+instructions: 'Value Proposition Single source of truth for all SwiftGear sales transactions.
+  Powers revenue reporting, commission calculations, and subscription analytics across
+  the organisation. Recommended Use Cases Finance: Revenue and average order value
+  analysis. Product: Subscription churn tracking and MRR reporting. Operations: Order
+  fulfilment monitoring and SLA compliance. Terms of Use Usage: Approved for internal
+  revenue reporting, commission calculations, and subscription analytics. Limitations:
+  All monetary values are stored in cents — always divide by 100.0 before reporting.
+  The calculated_total column is deprecated and must not be used.'
+name: Sales Transaction Ledger Agent
+osi_files:
+- products/sales-transaction-ledger/osi.yml
+postgres:
+  database: dpp_demo
+  host: postgresql-demo
+  password: sales_transaction_ledger_pwd
+  port: 5432
+  user: sales_transaction_ledger_user

@@ -1,0 +1,27 @@
+version: "3"
+
+tasks:
+  up:
+    desc: Build and start all services
+    cmds:
+      - docker compose up --build -d
+
+  down:
+    desc: Stop all services
+    cmds:
+      - docker compose down -v
+
+  logs:
+    desc: Follow workflow service logs
+    cmds:
+      - docker compose logs -f workflow
+
+  reset-access:
+    desc: Reset access.yml to default (no agents accessible for demo_user)
+    cmds:
+      - |
+        cat > config/access.yml << 'EOF'
+        users:
+          demo_user:
+            accessible_agents: []
+        EOF

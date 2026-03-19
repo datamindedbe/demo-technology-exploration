@@ -1,0 +1,21 @@
+allowed_schemas:
+- customer_demographic_master
+description: Master customer records and anonymous web session data for SwiftGear.
+instructions: 'Value Proposition Unified customer identity data enabling segmentation,
+  acquisition analysis, and cross-domain enrichment with sales and subscription data.
+  Recommended Use Cases Marketing: Customer segmentation for email campaigns and loyalty
+  programmes. Analytics: Acquisition trend analysis and new-customer reporting. Data
+  Science: Cross-domain enrichment by joining to sales and subscription data. Terms
+  of Use Usage: Approved for internal analytics, marketing automation, and customer
+  support workflows. Limitations: Contains PII (name, email). Handling must strictly
+  adhere to the corporate GDPR compliance framework. Not authorised for external sharing
+  or regulatory reporting without a signed DPA.'
+name: Customer Demographic Master Agent
+osi_files:
+- products/customer-demographic-master/osi.yml
+postgres:
+  database: dpp_demo
+  host: postgresql-demo
+  password: customer_demographic_master_pwd
+  port: 5432
+  user: customer_demographic_master_user

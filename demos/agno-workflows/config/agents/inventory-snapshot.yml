@@ -1,0 +1,21 @@
+allowed_schemas:
+- inventory_snapshot
+description: Current and historical inventory levels for all SwiftGear products.
+instructions: 'Value Proposition Provides a trusted, daily snapshot of warehouse stock
+  levels across all SKUs. Enables accurate demand forecasting, stockout prevention,
+  and supply chain optimization. Recommended Use Cases Logistics: Monitor current
+  sellable inventory by SKU and warehouse. Operations: Identify slow-moving or retired
+  products before they affect fulfilment. Supply Chain: Analyse historical stock trends
+  to improve reorder strategies. Terms of Use Usage: Approved for internal supply
+  chain, logistics, and operations analytics. Limitations: Not authorised for external
+  reporting. Stock data must not be shared outside the organisation without prior
+  approval.'
+name: Inventory Snapshot Agent
+osi_files:
+- products/inventory-snapshot/osi.yml
+postgres:
+  database: dpp_demo
+  host: postgresql-demo
+  password: inventory_snapshot_pwd
+  port: 5432
+  user: inventory_snapshot_user
