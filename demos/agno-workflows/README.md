@@ -22,6 +22,12 @@ Condition: check_access → evaluator reads config/access.yml; if access denied 
 [3] answer_question  → Team with callable factory answers using PostgreSQL
 ```
 
+## Video
+📺 [Watch the demo](<YouTube link>)
+
+## Author
+- Name: Pascal Knapen
+
 ## Prerequisites
 
 - [Docker](https://www.docker.com/) (with Compose v2)
