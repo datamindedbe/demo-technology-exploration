@@ -6,7 +6,7 @@
 - The difference between project-level and personal-level skills.
 
 ## Video
-📺 [Watch the demo](<YouTube link>)
+📺 [Watch the demo](https://youtu.be/jlX4sTbNHpc)
 
 ## Author
 - Name: [Jesus Garcia](https://github.com/jesgarram)
