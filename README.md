@@ -15,19 +15,19 @@ Demo code for Dataminded's Technology Exploration series.
 | S02E10 | Building an AI Agent with Subagents and Skills | [watch](https://youtu.be/KExht8wZ2Ng) | |
 | S02E09 | From Prompts to Agents: AI Agent Skills in Claude Code | [watch](https://youtu.be/jlX4sTbNHpc) | [code](demos/agent_skills/README.md) |
 | S02E08 | Azure Log Costs Out of Control? Cut Them by 60% | [watch](https://youtu.be/OkQ7ty9w19k) | |
+| S02E07 | AI Code Reviews with CodeRabbit and Sourcery | [watch](https://youtu.be/riA7NpIw2ik) | |
 
 ### Season 1 (2025)
 
 | Episode | Title | 📺 | 💻 |
 |---------|-------|:--:|:--:|
-| E007 | AI Code Reviews with CodeRabbit and Sourcery | [watch](https://youtu.be/riA7NpIw2ik) | |
-| E006 | Cross-Project AI Code Assistance using Cursor Workspaces | [watch](https://youtu.be/E_kOAvmeTJ0) | |
-| E005 | How to Build a RAG Agent with MindsDB | [watch](https://youtu.be/tfoXvifM-wg) | [code](demos/pyairbyte_mindsb/README.md) |
-| E004 | Data ingestion using PyAirbyte: Google Drive to Postgres | [watch](https://youtu.be/eLUQrSqP-ns) | [code](demos/pyairbyte_mindsb/README.md) |
+| S01E06 | Cross-Project AI Code Assistance using Cursor Workspaces | [watch](https://youtu.be/E_kOAvmeTJ0) | |
+| S01E05 | How to Build a RAG Agent with MindsDB | [watch](https://youtu.be/tfoXvifM-wg) | [code](demos/pyairbyte_mindsb/README.md) |
+| S01E04 | Data ingestion using PyAirbyte: Google Drive to Postgres | [watch](https://youtu.be/eLUQrSqP-ns) | [code](demos/pyairbyte_mindsb/README.md) |
 | Special | When AWS Fails: How to Prevent Crippling Your Infrastructure | [watch](https://youtu.be/PgIhIsjmVS4) | |
-| E003 | Hunting dbt Bugs with Postgres MCP and Cursor AI | [watch](https://youtu.be/tbrR21I3jJI) | [code](demos/postgres_mcp/README.md) |
-| E002 | MCP 101 - Unlocking AI Superpowers with the Model Context Protocol | [watch](https://youtu.be/fIr55-koOJQ) | [code](demos/claude_mcp/README.md) |
-| E001 | 3x Faster Prompting with Speech-to-text? A Quick Look at Whisper & SuperWhisper | [watch](https://youtu.be/kp2KS44Dbwc) | |
+| S01E03 | Hunting dbt Bugs with Postgres MCP and Cursor AI | [watch](https://youtu.be/tbrR21I3jJI) | [code](demos/postgres_mcp/README.md) |
+| S01E02 | MCP 101 - Unlocking AI Superpowers with the Model Context Protocol | [watch](https://youtu.be/fIr55-koOJQ) | [code](demos/claude_mcp/README.md) |
+| S01E01 | 3x Faster Prompting with Speech-to-text? A Quick Look at Whisper & SuperWhisper | [watch](https://youtu.be/kp2KS44Dbwc) | |
 
 
 
